@@ -1,0 +1,41 @@
+The following file provide some JSON examples showing the database hierarchy. 
+
+// Posting
+{
+    posting_id: 1,
+    position: "software engineer I",
+    posting_date: 07/20/2021,
+    job_description: "Some introduction of what the job is about",
+    minimum_qualification: ["Java", "JUnit Test", "Git"],
+    annual_salary: $105,000,
+    application_id: [501, 1, 37]
+}
+
+// Application
+{
+    application_id: 1,
+    submission_date: 07/22/2021,
+    applicant_qualification: ["Java", "Git"],
+    hired: true,
+    applicant: {
+        applicant_id: 1,
+        first_name: "Randy",
+        last_name: "Lirano",
+        email: "lirano.r@northeastern.edu",
+        phone_number: "(123)456-7789"
+    }
+}
+
+{
+    application_id: 50,
+    submission_date: 08/01/2021,
+    applicant_qualification: ["Java", "Git", "Node"],
+    hired: true,
+    applicant: {
+        applicant_id: 1,
+        first_name: "John",
+        last_name: "Guerra",
+        email: "guerra.j@northeastern.edu",
+        phone_number: "(123)456-7889"
+    }
+}
