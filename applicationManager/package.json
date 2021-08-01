@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node ./node_modules/nodemon/bin/nodemon.js ./bin/www",
-    "importPosting": "mongoimport -h localhost:27017 -d ApplicationManager -c Reference --drop --jsonArray --file ./db/Posting.json",
-    "importApplication": "mongoimport -h localhost:27017 -d ApplicationManager -c Reference --drop --jsonArray --file ./db/Application.json"
+    "importPosting": "mongoimport -h localhost:27017 -d ApplicationManager -c Posting --drop --jsonArray --file ./db/Posting.json",
+    "importApplication": "mongoimport -h localhost:27017 -d ApplicationManager -c Application --drop --jsonArray --file ./db/Application.json"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
