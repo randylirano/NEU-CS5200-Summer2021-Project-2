@@ -1,4 +1,4 @@
-// Query1: (10pts) How many tweets are not retweets or replies?
+// Query1: 
 
 const { MongoClient } = require("mongodb");
 
