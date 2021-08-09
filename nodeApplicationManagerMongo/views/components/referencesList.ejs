@@ -1,0 +1,25 @@
+<h2>Posting</h2>
+<div class="row g-3">
+  <% for (let post of postings) { %>
+
+    <div class="col-4">
+      <div class="card p-1">
+        <h5 class="card-title"><%= post.position %></h5>
+        <div class="card-text">
+          <div><%= post.position %></div>
+          <div>Language: <%= post.language %></div>
+          <div>Annual Salary: $<%= post.annual_salary %></div>
+          <div>
+            <a class="btn btn-outline-primary" href="<%= '/postings/' + post._id + '/edit' %>">Edit</a>
+            <a class="btn btn-outline-danger" href="<%= '/postings/' + post._id + '/delete' %>">Delete</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  <% } %>
+
+ <%- include("./pagination.ejs", { currentPage, lastPage }) %>
+
+</div>
