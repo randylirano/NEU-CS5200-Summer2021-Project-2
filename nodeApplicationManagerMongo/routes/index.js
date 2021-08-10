@@ -38,10 +38,10 @@ router.get("/applications", async (req, res, next) => {
   const pageSize = +req.query.pageSize || 24;
   const msg = req.query.msg || null;
   try {
-    let total = await myDb.getReferencesCount(query);
-    let references = await myDb.getApplications(query, page, pageSize);
+    let total = await myDb.getApplicationsCount(query);
+    let applications = await myDb.getApplications(query, page, pageSize);
     res.render("./pages/applications", {
-      references,
+      applications,
       query,
       msg,
       currentPage: page,
@@ -146,7 +146,7 @@ router.get("/references/:reference_id/delete", async (req, res, next) => {
 });
 
 
-router.post("/createReference", async (req, res, next) => {
+router.post("/createPosting", async (req, res, next) => {
   const ref = req.body;
 
   try {
