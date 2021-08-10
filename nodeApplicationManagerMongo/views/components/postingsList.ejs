@@ -6,9 +6,10 @@
       <div class="card p-1">
         <h5 class="card-title"><%= post.position %></h5>
         <div class="card-text">
-          <div><%= post.position %></div>
+          <div>Posting Date: <%= post.posting_date.toDateString() %></div>
           <div>Language: <%= post.language %></div>
-          <div>Annual Salary: $<%= post.annual_salary %></div>
+          <div>Cloud Platform: <%= post.cloud_platform %></div>
+          <div>Operating System: <%= post.operating_system %></div>
           <div>
             <a class="btn btn-outline-primary" href="<%= '/postings/' + post._id + '/edit' %>">Edit</a>
             <a class="btn btn-outline-danger" href="<%= '/postings/' + post._id + '/delete' %>">Delete</a>
@@ -20,6 +21,6 @@
 
   <% } %>
 
- <%- include("./pagination.ejs", { currentPage, lastPage }) %>
+ <%- include("./postingsPagination.ejs", { currentPage, lastPage }) %>
 
 </div>

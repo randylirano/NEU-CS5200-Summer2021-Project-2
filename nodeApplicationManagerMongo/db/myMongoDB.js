@@ -18,7 +18,7 @@ async function getPostings(query, page, pageSize) {
     await client.connect();
 
     const queryObj = {
-      position: { $regex: `^${query}`, $options: "i" },
+      position: { $regex: `^${query}`, $options: "i" }
     };
 
     return await client
@@ -63,27 +63,27 @@ async function getApplications(query, page, pageSize) {
 }
 
 
-async function getReferencesCount(query) {
-  console.log("getReferencesCount", query);
+async function getPostingsCount(query) {
+  console.log("getPostingsCount", query);
 
-  // const client = new MongoClient(uri);
+  const client = new MongoClient(uri);
 
-  // try {
-  //   await client.connect();
+  try {
+    await client.connect();
 
-  //   const queryObj = {
-  //     title: { $regex: `^${query}`, $options: "i" },
-  //   };
+    const queryObj = {
+      position: { $regex: `^${query}`, $options: "i" }
+    };
 
-  //   return await client
-  //     .db(DB_NAME)
-  //     .collection(COL_NAME)
-  //     .find(queryObj)
-  //     .count();
+    return await client
+      .db(DB_NAME)
+      .collection(POSTING_COL)
+      .find(queryObj)
+      .count();
 
-  // } finally {
-  //   client.close();
-  // }
+  } finally {
+    client.close();
+  }
 
 }
 
@@ -242,8 +242,8 @@ async function addVenueToReferenceID(reference_id, venue) {
 
 module.exports.getPostings = getPostings;
 module.exports.getApplications = getApplications;
+module.exports.getPostingsCount = getPostingsCount;
 
-module.exports.getReferencesCount = getReferencesCount;
 module.exports.insertReference = insertReference;
 module.exports.getReferenceByID = getReferenceByID;
 module.exports.updateReferenceByID = updateReferenceByID;

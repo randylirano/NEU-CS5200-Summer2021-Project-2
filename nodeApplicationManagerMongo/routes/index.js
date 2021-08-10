@@ -16,7 +16,7 @@ router.get("/postings", async (req, res, next) => {
   const pageSize = +req.query.pageSize || 24;
   const msg = req.query.msg || null;
   try {
-    let total = await myDb.getReferencesCount(query);
+    let total = await myDb.getPostingsCount(query);
     let postings = await myDb.getPostings(query, page, pageSize);
     res.render("./pages/index", {
       postings,
